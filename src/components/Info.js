@@ -5,8 +5,10 @@ import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 
 const UserInfo = () => {
-  const githubUser = React.useContext(GithubContext);
+  const { githubUser } = React.useContext(GithubContext);
+  // console.log(githubUser);
   const { public_repos, followers, following, public_gists } = githubUser;
+  console.log(public_repos);
 
   const items = [
     {
@@ -40,6 +42,7 @@ const UserInfo = () => {
   ];
 
   return (
+    //<h2>info page</h2>
     <section className="section">
       <Wrapper className="section-center">
         {items.map((item) => {
@@ -49,12 +52,14 @@ const UserInfo = () => {
     </section>
   );
 };
+
 const Item = ({ icon, label, value, color }) => {
   return (
     <article className="item">
       <span className={color}>{icon}</span>
       <div>
         <h3>{value}</h3>
+
         <p>{label}</p>
       </div>
     </article>
