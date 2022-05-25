@@ -22,28 +22,34 @@ const Repos = () => {
     console.log(language);
     return total;
   }, {});
+
+  languages = Object.values(languages)
+    .sort((a, b) => {
+      return b.value - a.value;
+    })
+    .slice(0, 5);
   console.log(languages);
 
-  const chartData = [
-    {
-      label: "HTML",
-      value: "13",
-    },
-    {
-      label: "CSS",
-      value: "213",
-    },
-    {
-      label: "Javascript",
-      value: "80",
-    },
-  ];
+  // const chartData = [
+  //   {
+  //     label: "HTML",
+  //     value: "13",
+  //   },
+  //   {
+  //     label: "CSS",
+  //     value: "213",
+  //   },
+  //   {
+  //     label: "Javascript",
+  //     value: "80",
+  //   },
+  // ];
 
   return (
     <section className="section">
       <Wrapper className="section-center">
         {/* <ExampleChart data={chartData} />; */}
-        <Pie3D data={chartData} />
+        <Pie3D data={languages} />
       </Wrapper>
     </section>
   );
